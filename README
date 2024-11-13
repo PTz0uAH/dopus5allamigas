@@ -7,8 +7,9 @@ The Amiga-gcc toolchain provided by Bebbo produced proper binaries on
 non-Termux platforms like WSL.. Msys2, Cygwin and real machines..
 
 Our goal is to create ("Termuxify"), on-device from a native Termux environment,
-a DOpus hdf-image which can easily be tested with Amiga emulators
-Amiberry and FS-UAE (also vAmigaWeb) and of course Uae4arm-apk.
+a DOpus hdf-image which can easily be tested with "termuxified" Amiga emulators
+Amiberry and FS-UAE and runs also with vAmigaWeb and of course Uae4arm-apk on
+the regular Android side.
 
 To be able to build the greatest public-domain filemanager/WB-replacement
 for Amiga with an alternative toolchain like VBCC/VASM/VLINK, some changes
