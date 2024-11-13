@@ -1,3 +1,44 @@
+Experimental fork of DOpus5, NOT a port but an adaptation of the source.
+
+Once upon a time the "freed" Dopous5-source toolchain "migrated" from
+the original SASC toolchain to GCC toolchain.
+
+The Amiga-gcc toolchain provided by Bebbo produced proper binaries on
+non-Termux platforms like WSL.. Msys2, Cygwin and real machines..
+
+Our goal is to create ("Termuxify"), on-device from a native Termux environment,
+a DOpus hdf-image which can easily be tested with Amiga emulators
+Amiberry and FS-UAE (also vAmigaWeb) and of course Uae4arm-apk.
+
+To be able to build the greatest public-domain filemanager/WB-replacement
+for Amiga with an alternative toolchain like VBCC/VASM/VLINK, some changes
+in the sources are probably needed hence this initiative..
+
+For obvious reasons (time) it is not my intention to comment every change or even
+use a shipload of conditional defines to keep the source compile on other
+Amiga-ish flavoured systems too.. if it works with the VBCC toolchain then
+porting to other Amiga-ish systems should be possible too..
+
+It started with adapting the Amiga-gcc (tmx) toolchain to produce, instead of
+the full (unbuildable on aarch64) "old-cow" GNU binutils, the VBCC toolchain
+which produces less demanding binaries for the Amiga..
+
+All done with in the back of my mind the real Amiga's which are not expanded
+to the max like those inside emulated Amiga environments..
+
+Of course "native building" inside the Amiga emulated/real machine is somewhat more
+genuine and "oldskool" but crosscompiling might be a whole lot faster, even
+on-device.
+
+As Termux-app can be build from inside a Termux session, I vastly believe some
+degree of circular preservationalism within an educational context is not only wise
+but also an "ueber-fun" thing to do.. to keep the momentum going IYKWIM!
+
+With kind regards,
+
+PTz0uAH
+
+Please read the original developer info below for more information..
 /***************************************************************************
 
  Directory Opus 5
@@ -29,7 +70,7 @@ understand the terms and conditions of this license.
 
 This release was made possible by a power2people.org bounty
 (http://www.power2people.org/projects/profile/64) - many thanks to the
-contributors and to Olaf Schˆnweiﬂ for organising this.
+contributors and to Olaf Sch√∂nwei√ü for organising this.
 
 Please note:
 
