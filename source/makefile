@@ -15,7 +15,7 @@ export arch
 # make MOS debug=no
 # Compiles normal (non-debug) version of dopus5 components for MorphOS.
 
-# make OS3 release
+# make OS3 release debug=no
 # Compiles debug version of dopus5 components for OS3 & creates
 # release archive.
 
@@ -70,7 +70,7 @@ endif
 REVISION := 92
 ifeq ($(debug), no)
 TYPE :=
-VERSION := _$(REVISION)_
+VERSION := _$(REVISION)_release_
 else
 TYPE := _debug
 VERSION := _$(REVISION)_dev_
@@ -98,8 +98,7 @@ ARCDEST := /releases/
 LHA := lha a -a -r -q
 else ifeq ($(SYSTEM), linux)
 ARCDEST := $(DEST)
-LHAEXT := lha -xfw=./ 
-ZIP := zip -r 
+LHA := lha a -1
 else
 ARCDEST := $(DEST)
 LHA := lha ao5q
@@ -208,15 +207,9 @@ endif
 ifeq ($(log), yes)
 	@$(COPY) ../ChangeLog Dopus5
 endif
-ifeq ($(SYSTEM), linux)
-# lhasa on Linux seems not to be able to pack, so use zip instead
-# first unpack the base archive, then zip up everything
-	@$(LHAEXT) ../archive/$(BASEARC) 
-	@$(ZIP) -r $(ARCDEST)Dopus5$(VERSION)$(NAME)$(TYPE).zip Dopus5
-else
+# lha is now available for linux so lets use it (https://github.com/jca02266/lha)
 	@$(COPY) ../archive/$(BASEARC) $(DEST)Dopus5$(VERSION)$(NAME)$(TYPE).lha
 	@$(LHA) $(ARCDEST)Dopus5$(VERSION)$(NAME)$(TYPE).lha Dopus5
-endif
 	@$(REMOVE) Dopus5
 	@echo ">>>>>Release date:" $(shell $(DATE) "+%m/%d/%Y")
 
