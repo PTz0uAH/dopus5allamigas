@@ -66,7 +66,7 @@ void show_about(struct Screen *screen, IPCData *ipc)
 	Att_NewNode(list, "", 1, 0);
 
 	// Link on site
-	Att_NewNode(list, "www.dopus5.org", 1, 0);
+	Att_NewNode(list, "dopus5.amigoxpe.net", 1, 0);
 	Att_NewNode(list, "", 0, 0);
 
 	// Try for external about library
